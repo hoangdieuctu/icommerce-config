@@ -17,7 +17,22 @@ spring:
           uri: lb://productservice
           predicates:
             - Path=/api/v1/product/**
+          filters:
+            - TokenFilter
+            - ProductFilter
         - id: shoppingcartservice
           uri: lb://shoppingcartservice
           predicates:
             - Path=/api/v1/shopping-cart/**
+          filters:
+            - TokenFilter
+    datasource:
+      url: jdbc:h2:mem:product_audit
+      driverClassName: org.h2.Driver
+      username: sa
+      password: pw
+    jpa:
+      database-platform: org.hibernate.dialect.H2Dialect
+    h2:
+      console:
+        enabled: true
