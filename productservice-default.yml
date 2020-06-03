@@ -1,0 +1,33 @@
+server.port=9092
+
+# Database
+spring:
+  datasource:
+    url: jdbc:h2:mem:product
+    driverClassName: org.h2.Driver
+    username: sa
+    password: pw
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+  h2:
+    console:
+      enabled: true
+
+# Service custom
+error:
+  productNotFound:
+    code: 10010
+    message: Product not found
+  productOutOfQty:
+    code: 10011
+    message: Product qty is not enough
+  exception:
+    code: 10000
+    message: Internal error
+
+# Generator
+generator:
+  products: 1,MacBook Pro 2013,White,Apple,Apply MacBook Pro 2013 13 Inch,43000000,20;\
+         2,MacBook Air 2017,White,Apple,Apply MacBook Air 2017 13 Inch,30000000,5;\
+         3,Dell Vostro 3590,Black,Dell,Core i7 - 8GB RAM,35000000,7;\
+         4,Acer Predator,Black,Acer,Triton 500 - 8GB RAM,79900000,2;

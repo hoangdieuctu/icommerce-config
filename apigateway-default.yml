@@ -1,0 +1,23 @@
+server:
+  port: 8080
+
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+        - id: authenticationservice
+          uri: lb://authenticationservice
+          predicates:
+            - Path=/api/*/auth/**
+        - id: productservice
+          uri: lb://productservice
+          predicates:
+            - Path=/api/*/product/**
+        - id: shoppingcartservice
+          uri: lb://shoppingcartservice
+          predicates:
+            - Path=/api/*/shopping-cart/**

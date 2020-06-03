@@ -1,0 +1,28 @@
+server.port=9093
+
+# Database
+spring:
+  datasource:
+    url: jdbc:h2:mem:shopping_cart
+    driverClassName: org.h2.Driver
+    username: sa
+    password: pw
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+  h2:
+    console:
+      enabled: true
+
+# Service custom
+microservice:
+  product:
+    buy:
+      url: http://productservice/api/v1/product/buy
+
+error:
+  shoppingCart:
+    code: 20010
+    message: Shopping cart error
+  exception:
+    code: 10000
+    message: Internal error
