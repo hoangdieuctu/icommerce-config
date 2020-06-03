@@ -12,12 +12,12 @@ spring:
         - id: authenticationservice
           uri: lb://authenticationservice
           predicates:
-            - Path: /api/v1/auth/**
+            - Path=/api/v1/auth/**
         - id: productservice
           uri: lb://productservice
           predicates:
-            - Path: /api/v1/product/**
+            - Path=/api/v1/product/**
         - id: shoppingcartservice
           uri: lb://shoppingcartservice
           predicates:
-            - Path: /api/v1/shopping-cart/**
+            - Path=/api/v1/shopping-cart/**
