@@ -13,6 +13,14 @@ spring:
           uri: lb://authenticationservice
           predicates:
             - Path=/api/v1/auth/**
+
+        - id: ignorebuyproduct
+          uri: no://op
+          predicates:
+            - Path=/api/v1/product/buy
+          filters:
+            - SetStatus=400
+
         - id: productservice
           uri: lb://productservice
           predicates:
@@ -20,6 +28,7 @@ spring:
           filters:
             - TokenFilter
             - ProductFilter
+
         - id: shoppingcartservice
           uri: lb://shoppingcartservice
           predicates:
